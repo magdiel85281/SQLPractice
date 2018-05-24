@@ -78,5 +78,9 @@ SELECT continent, COUNT(country) FROM countries
 *********************************
 4. Use HAVING to determine which continents are represented at least twice in the countries table.
 
+SELECT continent, COUNT(country) FROM countries
+  GROUP BY continent
+  HAVING COUNT(country) >= 2
+  ORDER BY continent;
 
 
