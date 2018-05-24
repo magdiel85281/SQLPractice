@@ -83,4 +83,32 @@ SELECT continent, COUNT(country) FROM countries
   HAVING COUNT(country) >= 2
   ORDER BY continent;
 
+*****************
+*****************
+Build Complex Queries on Multiple Tables
+**********************************
+1. Use JOIN to display the capital, the country, and the flag name.
 
+SELECT countries.capital, countries.country, flags.name
+  FROM countries
+  LEFT JOIN flags ON countries.country = flags.country;
+  
+  
+************************************
+2. Use JOIN and WHERE to display the continents associated to the flags in the flags table when
+the flag has a name (i.e. not ‘NA’).
+
+SELECT flags.name, countries.continent
+  FROM flags
+  LEFT JOIN countries ON countries.country = flags.country
+  WHERE flags.name != "NA";
+
+******************************************
+3. Use JOIN and HAVING to display continents that have at least 2 countries represented as well as
+the average adoption date of the flag (as avg_date).
+
+SELECT countries.continent, COUNT(countries.country), AVG(flags.adoption_date) AS avg_date
+  FROM countries
+  LEFT JOIN flags ON countries.country = flags.country
+  GROUP BY continent
+  HAVING COUNT(countries.country) >= 2;
