@@ -37,6 +37,7 @@ SELECT country, capital,
   FROM countries;
   
 #With Filter
+
 SELECT country, capital, 
   CASE WHEN continent = "Europe" THEN "Eurasia"
     WHEN continent = "Asia" THEN "Eurasia"
@@ -45,3 +46,29 @@ SELECT country, capital,
   ELSE NULL END AS quartersphere
   FROM countries
   WHERE LENGTH(capital) >= 7;
+
+
+Build Queries with Aggregates
+Aggregates include commands such as DISTINCT, COUNT, SUM, GROUP BY, HAVING, and ORDER
+BY. Try using these commands on the following questions!
+1. Use DISTINCT to list the continents in the countries table (each continent should appear only
+once).
+
+
+
+
+2. Use COUNT to see how many countries are in Europe.
+
+
+
+
+3. Use GROUP BY to count how many countries are in each continent, with continents
+alphabetically ordered (hint: use ORDER BY).
+
+
+
+
+4. Use HAVING to determine which continents are represented at least twice in the countries table.
+
+
+
