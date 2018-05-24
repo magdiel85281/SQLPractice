@@ -54,12 +54,13 @@ BY. Try using these commands on the following questions!
 1. Use DISTINCT to list the continents in the countries table (each continent should appear only
 once).
 
+SELECT DISTINCT continent FROM countries;
 
 
 
 2. Use COUNT to see how many countries are in Europe.
 
-
+SELECT COUNT(country) FROM countries WHERE continent = "Europe";
 
 
 3. Use GROUP BY to count how many countries are in each continent, with continents
