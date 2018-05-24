@@ -27,6 +27,7 @@ SELECT country FROM countries WHERE country LIKE "U%";
 countries with capitals that are at least 7 character long.
 
 #Without filter
+
 SELECT country, capital, 
   CASE WHEN continent = "Europe" THEN "Eurasia"
     WHEN continent = "Asia" THEN "Eurasia"
@@ -34,3 +35,13 @@ SELECT country, capital,
     WHEN continent = "South America" THEN "Americas"
   ELSE NULL END AS quartersphere
   FROM countries;
+  
+#With Filter
+SELECT country, capital, 
+  CASE WHEN continent = "Europe" THEN "Eurasia"
+    WHEN continent = "Asia" THEN "Eurasia"
+    WHEN continent = "North America" THEN "Americas"
+    WHEN continent = "South America" THEN "Americas"
+  ELSE NULL END AS quartersphere
+  FROM countries
+  WHERE LENGTH(capital) >= 7;
